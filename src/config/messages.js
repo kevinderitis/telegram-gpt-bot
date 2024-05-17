@@ -9,11 +9,9 @@ const messages = {
 
     // Edgardo Marconi 🌟🙏
     // `
-    CHAT_WELCOME_MESSAGE: `🙏 ¡Bienvenidos a este hermoso espacio de Cuidad y el Apoyo Emocional! 🙏🌟
+    CHAT_WELCOME_MESSAGE: `🙏 ¡Bienvenid@ a este hermoso espacio de Cuidado y Apoyo Emocional! 🙏🌟
 
-Queridos amigos y amigas en busca de bienestar emocional,
-
-Es un honor darles la más cálida bienvenida a este espacio seguro y acogedor, donde la comprensión y el apoyo están siempre presentes para acompañarlos en su viaje hacia la salud mental y emocional. Soy Emi, estoy acá para ofrecerles el apoyo y la orientación que necesitan en su camino hacia el bienestar emocional.
+Es un honor darte la más cálida bienvenida a este espacio seguro y acogedor, donde la comprensión y el apoyo están siempre presentes para acompañarte en este viaje hacia la salud mental y emocional. Soy Emi, un bot con inteligencia artificial, y estoy acá para ofrecerte el apoyo y la orientación que necesitás en tu camino hacia el bienestar emocional. Mi objetivo es generar un espacio de confianza donde puedas abrirte y expresar tus sentimientos libremente.
 
 Con gratitud y compromiso,
 
