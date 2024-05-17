@@ -16,7 +16,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}))
 
 initBot();
-startPaymentsCron();
+// startPaymentsCron();
 
 app.use('/gpt', gptRouter);
 app.use('/lead', leadRouter);

@@ -146,17 +146,19 @@ export const telegramBotMsg = async (name, prompt, chatId) => {
         console.log(`Sending message to ${name} by olga`)
         let lead = await getLeadByChatId(chatId);
         let threadId = lead ? lead.threadId : null;
-        let message = 'Mensaje automático: Espero que este mensaje te encuentre bien. Quisiera recordarte amablemente que aún no hemos recibido el pago correspondiente por tu consulta de tarot. Valoramos tu interés en buscar orientación y apoyo a través de nuestras lecturas, pero antes de adentrarnos en el maravilloso mundo de las cartas y que este mensaje llegue a nuestra tarotista es importante que completemos el proceso de pago @TarotEgicpioBot';
-        let payment = lead ? lead.payment : false;
+        // let message = 'Mensaje automático: Espero que este mensaje te encuentre bien. Quisiera recordarte amablemente que aún no hemos recibido el pago correspondiente por tu consulta de tarot. Valoramos tu interés en buscar orientación y apoyo a través de nuestras lecturas, pero antes de adentrarnos en el maravilloso mundo de las cartas y que este mensaje llegue a nuestra tarotista es importante que completemos el proceso de pago @TarotEgicpioBot';
+        // let payment = lead ? lead.payment : false;
+        // let response = await sendMessage(prompt, threadId, config.ASSISTANT_ID);
+        // if (payment) {
+        //     message = response.response;
+        // }
         let response = await sendMessage(prompt, threadId, config.ASSISTANT_ID);
-        if (payment) {
-            message = response.response;
-        }
         if (!threadId && response.threadId) {
+            await createLead(response.threadId, name, chatId);
             await updateLeadByMainThreadId(chatId, response.threadId);
         }
-
-        return message;
+        return  response.response;
+        // return message;
     } catch (error) {
         console.log(error);
         throw error;

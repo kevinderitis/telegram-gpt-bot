@@ -5,10 +5,10 @@ import TelegramBot from 'node-telegram-bot-api';
 import { createPaymentPreference } from '../services/mpService.js';
 
 const token = config.API_KEY_TELEGRAM;
-const mainToken = config.MAIN_API_KEY_TELEGRAM;
+// const mainToken = config.MAIN_API_KEY_TELEGRAM;
 
 const bot = new TelegramBot(token, { polling: true });
-const mainBot = new TelegramBot(mainToken, { polling: true });
+// const mainBot = new TelegramBot(mainToken, { polling: true });
 
 const welcomeMessage = messages.CHAT_WELCOME_MESSAGE;
 
@@ -36,19 +36,19 @@ export const notifyPayment = async chatId => {
 
 export const initBot = () => {
 
-    mainBot.on('message', async (msg) => {
-        const chatId = msg.chat.id;
-        const messageText = msg.text;
-        const name = `${msg.chat.first_name} ${msg.chat.last_name}`;
-        let response;
-        try {
-            response = await mainTelegramBotMsg(name, messageText, chatId)
-            let msgText = await verifyLink(response, chatId);
-            mainBot.sendMessage(chatId, msgText);
-        } catch (error) {
-            console.log(error)
-        }
-    });
+    // mainBot.on('message', async (msg) => {
+    //     const chatId = msg.chat.id;
+    //     const messageText = msg.text;
+    //     const name = `${msg.chat.first_name} ${msg.chat.last_name}`;
+    //     let response;
+    //     try {
+    //         response = await mainTelegramBotMsg(name, messageText, chatId)
+    //         let msgText = await verifyLink(response, chatId);
+    //         mainBot.sendMessage(chatId, msgText);
+    //     } catch (error) {
+    //         console.log(error)
+    //     }
+    // });
 
     bot.on('message', async (msg) => {
         const chatId = msg.chat.id;
@@ -68,7 +68,7 @@ export const initBot = () => {
             setTimeout(() => {
                 bot.sendMessage(chatId, response);
             }, 8000);
-            
+
         } else {
             bot.sendMessage(chatId, welcomeMessage, {
                 reply_markup: {
@@ -92,10 +92,10 @@ export const initBot = () => {
         const action = callbackQuery.data;
 
         if (action === 'aceptar') {
-            setTimeout(() => {
-                bot.sendMessage(chatId, messages.BOT_WELCOME_MESSAGE);
-            }, 5000);
-
+            // setTimeout(() => {
+            //     bot.sendMessage(chatId, messages.BOT_WELCOME_MESSAGE);
+            // }, 5000);
+            bot.sendMessage(chatId, messages.BOT_WELCOME_MESSAGE);
         }
     });
 };
