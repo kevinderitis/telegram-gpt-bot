@@ -1,5 +1,4 @@
 import { getPaymentByReference } from '../services/mpService.js';
-import { notifyPayment } from '../bot/telegram-bot.js';
 import { updateLeadPaymentByChatId } from '../dao/leadDAO.js';
 
 export const webhook = async (req, res) => {

@@ -141,8 +141,9 @@ const validateThread = async (threadId) => {
     throw new OpenAIError('Se agotaron los intentos');
 };
 
-export const telegramBotMsg = async (name, prompt, chatId) => {
+export const botMsg = async (name, prompt, chatId) => {
     try {
+        // aca con el instanceId se puede elegir el assistant
         console.log(`Sending message to ${name} by olga`)
         let lead = await getLeadByChatId(chatId);
         let threadId = lead ? lead.threadId : null;
